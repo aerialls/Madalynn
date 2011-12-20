@@ -9,3 +9,17 @@ body {
 .container > footer p {
     text-align: center;
 }
+
+.project {
+    height: 130px;
+}
+
+.project .thumbnail {
+    float: left;
+    margin-right: 15px;
+}
+
+.project .description {
+    padding-top: 20px;
+    text-align: justify;
+}
