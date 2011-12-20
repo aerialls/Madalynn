@@ -1,0 +1,11 @@
+body {
+    padding-top: 60px;
+}
+
+.container {
+    width: 820px;
+}
+
+.container > footer p {
+    text-align: center;
+}
