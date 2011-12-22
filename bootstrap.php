@@ -15,8 +15,9 @@ require_once __DIR__.'/vendor/silex.phar';
 $app = new Silex\Application();
 
 $app['autoloader']->registerNamespaces(array(
-    'Madalynn'  => __DIR__.'/src',
-    'Plum'      => __DIR__.'/vendor/plum/src'
+    'Madalynn'   => __DIR__.'/src',
+    'Plum\Silex' => __DIR__.'/vendor/plum-service-provider/src',
+    'Plum'       => __DIR__.'/vendor/plum/src'
 ));
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -25,3 +26,17 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+$app->register(new Plum\Silex\Provider\PlumServiceProvider(), array(
+    'plum.servers' => array(
+        'bender' => array(
+            'host'    => 'bender.madalynn.eu',
+            'user'    => 'web',
+            'dir'     => '/home/web/madalynn.eu/www',
+            'port'    => 2222,
+            'options' => array(
+                'rsync_exclude' => __DIR__.'/rsync_exclude.txt'
+            )
+        )
+    )
+));
