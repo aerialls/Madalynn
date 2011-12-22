@@ -15,7 +15,8 @@ require_once __DIR__.'/vendor/silex.phar';
 $app = new Silex\Application();
 
 $app['autoloader']->registerNamespaces(array(
-    'Madalynn'  => __DIR__.'/src'
+    'Madalynn'  => __DIR__.'/src',
+    'Plum'      => __DIR__.'/vendor/plum/src'
 ));
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
