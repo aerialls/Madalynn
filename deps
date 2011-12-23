@@ -1,0 +1,8 @@
+[twig]
+    git=https://github.com/fabpot/Twig.git
+
+[plum]
+    git=https://github.com/aerialls/Plum.git
+
+[plum-service-provider]
+    git=https://github.com/aerialls/SilexPlumServiceProvider.git
