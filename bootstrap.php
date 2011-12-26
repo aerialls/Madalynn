@@ -27,16 +27,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
-$app->register(new Plum\Silex\Provider\PlumServiceProvider(), array(
-    'plum.servers' => array(
-        'bender' => array(
-            'host'    => 'bender.madalynn.eu',
-            'user'    => 'web',
-            'dir'     => '/home/web/madalynn.eu/www',
-            'port'    => 2222,
-            'options' => array(
-                'rsync_exclude' => __DIR__.'/rsync_exclude.txt'
-            )
-        )
-    )
-));
+if (!file_exists(__DIR__.'/config.php')) {
+    throw new RuntimeException('You must create your own configuration file.');
+}
+
+// Configuration file
+require_once __DIR__.'/config.php';
